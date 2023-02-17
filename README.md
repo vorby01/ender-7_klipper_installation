@@ -5,10 +5,10 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch
 Details and a reference for the installation of klipper on the ender 7:
 20230120 Ender7_Installation.txt
 
--Install MainsailOS on raspberry pi
--Configure printer.cfg (board pins)
--Build and flash firmware to ender 7 board for klipper
--Configure and test settings
+- Install MainsailOS on raspberry pi
+- Configure printer.cfg (board pins)
+- Build and flash firmware to ender 7 board for klipper
+- Configure and test settings
  
  (Work in Progress)
  
