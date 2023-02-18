@@ -28,7 +28,4 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 ## Pictures
 ###### Ender 7 2023/01/21
 ![20230121_150533 167130](https://user-images.githubusercontent.com/121613362/213863458-201dbd82-3e40-40df-90d4-883b426c66c4.jpg)
- 
-First Bency (2h22m)(PrusaSlicer Base Ender 7 settings) 
-![20230121_150455 167132](https://user-images.githubusercontent.com/121613362/213863452-1865b6c5-bf65-48be-adda-00ca4e97676e.jpg)
 
