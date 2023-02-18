@@ -2,7 +2,7 @@
 Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk)(Work in Progress)
 
 ## Machine Details
-#### Creality Ender 7 FDM Printer
+#### Creality Ender-7 Core-XY 3D Printer (purchased 2021/08/08)
 - (Early model with leadshine DM542 microstep drivers for X and Y)
 #### Modifications (2023/01/21)
 - Creality BL Touch Auto Bed Leveling Kit for Ender-7 (No Longer Available)(https://www.creality3d.online/collections/auto-bed-leveling-kit)
