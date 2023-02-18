@@ -1,7 +1,7 @@
 # Ender 7 Klipper Config
 Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk)(Work in Progress)
-
-- ### Machine Details
+- - - -
+- ### Printer Details
   - #### Creality Ender-7 Core-XY 3D Printer
     - (Early model with leadshine DM542 microstep drivers for X and Y)(purchased 2021/08/08)
   - ##### Modifications (2023/01/21)
@@ -16,11 +16,12 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
     - ADXL345 (Klipper Resonance Compensation)
     - TH3D, Creality Ender 7 12864 LCD Conversion/Upgrade Kit (https://www.th3dstudio.com/product/creality-ender-7-12864-lcd-conversion-upgrade-kit/)
 
-           
+- - - -           
 - ### Klipper Host Machine
   - Raspberry Pi4
     - Running: Mainsail OS
 
+- - - -
 ## File Descriptions:
  - 20230120 Ender7_Installation.txt, All of my notes on klipper installation and configuration on Ender-7
 
