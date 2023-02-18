@@ -1,5 +1,9 @@
 # Ender 7 Klipper Config
 Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk)(Work in Progress)
+- Notes:
+  - Ender-7 inbuilt screen will no longer work, incompatable with Klipper (creality wont release sorce code)
+  - Installing Klipper if settings are incorrect the printer can crash/break
+  
 - - - -
 - ### Printer Details
   - #### Creality Ender-7 Core-XY 3D Printer
