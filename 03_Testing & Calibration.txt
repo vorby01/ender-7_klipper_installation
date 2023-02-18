@@ -133,8 +133,38 @@
       - rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
         - 200steps * (16microsteps / 135.8steps/mm) = 23.564mm
         
+### Calibrate flow rate (specific to each filament)
+  - PrusaSlicer (extrusion multiplier)
+  - Create/download a flow rate calibration model (50mm solid cube) and slice
+    - Slicer print settings:
+      - Layer Height: 0.2mm (or set to your normal printer layer height)
+        - PrusaSlicer > print settings > layers and perimeters > Layer height
+      -Line Width: 0.4 (wall thickness)
+        - PrusaSlicer > print settings > advanced > default extrusion width
+      -Wall Count(Perimeters): 1
+        - PrusaSlicer > print settings > layers and perimeters > Perimeters
+      -Infill Density: Set to 0%
+      -Top layers: set to 0 to make cube hollow
+        - PrusaSlicer > print settings > layers and perimeters > Solid layers > Top
+      -Print Speed: Set to your normal wall printing speed
+        - PrusaSlicer > print settings > layers and perimeters > Perimeters (default 40mm/s)
+    - Slicer filament settings
+      - PrusaSlicer Generic PLA
+        - Nozzle, First Layer:210C, Other Layers:205C
+        - Bed,    First Layer:60C,  Other Layers:60C
 
-
-
+  - Print Model with settings above
   
+  - Measure each wall thickness at center on print with calipers
+    - measurements: 0.36, 0.4, 0.39, 0.35
+    - 0.36 + 0.4 + 0.39 + 0.35 = 1.5mm
+    - 1.5 / 4 = 0.375mm average wall thickness
+    
+  - Calculate flow rate
+    - New flow rate (%) = (0.4 ÷ average wall width) × 100
+    - (0.4 / 0.375) * 100 = 106.667%
+    - Extrusion Multiplier: 106.667% = 1.07
   
+  - Update PrusaSlicer Extrusion Multiplier (recommended range: 0.9-1.1)
+    - Filament Settings > Filament > Extrusion multiplier = 1.07
+    
