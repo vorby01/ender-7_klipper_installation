@@ -17,12 +17,8 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 - TH3D, Creality Ender 7 12864 LCD Conversion/Upgrade Kit (https://www.th3dstudio.com/product/creality-ender-7-12864-lcd-conversion-upgrade-kit/)
 
 ## File Descriptions:
-20230120 Ender7_Installation.txt
+20230120 Ender7_Installation.txt, All of my notes on klipper installation and configuration on Ender-7
 
-- Install MainsailOS on raspberry pi
-- Configure printer.cfg (board pins)
-- Build and flash firmware to ender 7 board for klipper
-- Configure and test settings
  
  
 ## Pictures
