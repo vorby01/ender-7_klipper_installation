@@ -13,6 +13,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 - TH3D, Aluminum Bed Spacers (https://www.th3dstudio.com/product/aluminum-bed-spacers-pack-of-4/)
 
 #### Modifications (2023/02/18)
+- ADXL345 (Klipper Resonance Compensation)
 - TH3D, Creality Ender 7 12864 LCD Conversion/Upgrade Kit (https://www.th3dstudio.com/product/creality-ender-7-12864-lcd-conversion-upgrade-kit/)
 
 ## File Descriptions:
