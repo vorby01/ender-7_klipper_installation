@@ -1,7 +1,7 @@
 # Ender 7 Klipper Config
 Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk)(Work in Progress)
 
-- Machine Details
+- ###### Machine Details
   - Creality Ender-7 Core-XY 3D Printer
     - (Early model with leadshine DM542 microstep drivers for X and Y)(purchased 2021/08/08)
   - Modifications (2023/01/21)
@@ -20,10 +20,10 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
   * Nested bullet
     * Sub-nested bullet etc
 * Bullet list item 2
-          
-## Klipper Host Machine
- #### Raspberry Pi4
-  - Running: Mainsail OS
+           
+- ###### Klipper Host Machine
+  - Raspberry Pi4
+    - Running: Mainsail OS
 
 ## File Descriptions:
  - 20230120 Ender7_Installation.txt, All of my notes on klipper installation and configuration on Ender-7
