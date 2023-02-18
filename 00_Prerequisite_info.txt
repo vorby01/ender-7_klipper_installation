@@ -1,11 +1,11 @@
-Ender 7 Machine Info (prior to Klipper install)
+## Ender 7 Machine Info (prior to Klipper install)
 - Board: Creality CR-FDM-v2.4.S1_v101
   - Power input: 24v
   - Processor: ARM® Cortex®-M3 STM32F1 Microcontroller IC 32-Bit Single-Core 72MHz 512KB (512K x 8) FLASH
     - STM32F103RET6
     - 32bit
     
-Ender-7 (Marlin 1 - Command Output)
+### Ender-7 (Marlin 1 - Command Output)
 M503                                                             # Report Settings
 Recv:   G21    ; Units in mm (mm)
 Recv: 
@@ -22,45 +22,45 @@ Recv:   M304 P327.11 I19.20 D1393.45                           #M304 - Set Bed P
 Recv:   M413 S0                                                #M413 - Power-loss Recovery
 Recv:   M851 X30.00 Y27.00 Z-2.60                              #M851 - XYZ Probe Offset
 
-CR-FDM-v2.4.S1_v101 Pinout (hardware names)
- - [! preceding name to indicate reverse polarity] [^ preceding hardware pull-up resistor] [~ preceding hardware pull-down resistor]
-     [stepper_x]
-    step_pin: PC2
-    dir_pin: PB9
-    enable_pin: !PC3
-    endstop_pin: ^PA5
+### CR-FDM-v2.4.S1_v101 Pinout (hardware names)
+  - [! preceding name to indicate reverse polarity] [^ preceding hardware pull-up resistor] [~ preceding hardware pull-down resistor]
+[stepper_x]
+step_pin: PC2
+dir_pin: PB9
+enable_pin: !PC3
+endstop_pin: ^PA5
 
-    [stepper_y]
-    step_pin: PB8
-    dir_pin: !PB7
-    enable_pin: !PC3
-    endstop_pin: ^PA6
+[stepper_y]
+step_pin: PB8
+dir_pin: !PB7
+enable_pin: !PC3
+endstop_pin: ^PA6
 
-    [stepper_z]
-    step_pin: PB6
-    dir_pin: PB5
-    enable_pin: !PC3
-    endstop_pin: ^PA7
+[stepper_z]
+step_pin: PB6
+dir_pin: PB5
+enable_pin: !PC3
+endstop_pin: ^PA7
 
-    [extruder]
-    step_pin: PB4
-    dir_pin: !PB3
-    enable_pin: !PC3
-    heater_pin: PA1
-    sensor_pin: PC5
+[extruder]
+step_pin: PB4
+dir_pin: !PB3
+enable_pin: !PC3
+heater_pin: PA1
+sensor_pin: PC5
 
-    [heater_bed]
-    heater_pin: PA15
-    sensor_pin: PC4
+[heater_bed]
+heater_pin: PA15
+sensor_pin: PC4
 
-    [fan]
-    pin: PA0
+[fan]
+pin: PA0
 
-    [filament_switch_sensor filament_sensor]
-    switch_pin: !PA4
+[filament_switch_sensor filament_sensor]
+switch_pin: !PA4
 
-    [bltouch]
-    sensor_pin: ^PB1
-    control_pin: PB0
+[bltouch]
+sensor_pin: ^PB1
+control_pin: PB0
  
  
