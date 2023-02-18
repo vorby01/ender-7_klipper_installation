@@ -16,10 +16,10 @@ Markup : - ##### Modifications (2023/02/18)
             - ADXL345 (Klipper Resonance Compensation)
             - TH3D, Creality Ender 7 12864 LCD Conversion/Upgrade Kit (https://www.th3dstudio.com/product/creality-ender-7-12864-lcd-conversion-upgrade-kit/)
 
-Markup : * Bullet list
-              * Nested bullet
-                  * Sub-nested bullet etc
-          * Bullet list item 2
+* Bullet list
+  * Nested bullet
+    * Sub-nested bullet etc
+* Bullet list item 2
           
 ## Klipper Host Machine
  #### Raspberry Pi4
