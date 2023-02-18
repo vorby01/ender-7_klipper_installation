@@ -6,3 +6,6 @@
 
 ###### Benchy 24/01/23 (1h 20m)
 ![pic3](20230124_Benchy_1h20m.jpg)
+
+###### Max Extrusion Test 80mm/s to 250mm/s
+![pic4](20230126_extrusion_speed_80-250.jpg)
