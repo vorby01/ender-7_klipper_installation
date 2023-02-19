@@ -37,5 +37,33 @@
     
 ### Print and measure for maximum flow
   - print model 20230124_external_speed_test_2_0.2mm_PLA_MINI_23m.gcode
+  - gcode details (nozzle: 0.4, layer_height: 0.2, perimeters: 1, Temp_bed: 60, Temp_nozzle: 215)
+    - 0-0.5, external perimeters: 60mm/s
+    - 0.5-5, external perimeters: 80mm/s
+    - 5-10,  external perimeters: 100mm/s
+    - 10-15, external perimeters: 120mm/s
+    - 15-20, external perimeters: 140mm/s
+    - 20-25, external perimeters: 160mm/s
+    - 25-30, external perimeters: 180mm/s
+    - 30-35, external perimeters: 200mm/s
+    - 35-40, external perimeters: 220mm/s
+    - 40-45, external perimeters: 240mm/s
+    - 45-50, external perimeters: 250mm/s
     
+  - Measure from base up to where under extrusion begins
+    - 25mm = 160mm/s
     
+  - Calculate maximum flow (line_width = 0.4 * 1.2 = 0.48)
+    - (PI*r^2+2*r*(L-H))*mm/s
+    - (PI * (<layer_height> / 2)^2 + 2 * (<layer_height> / 2) * (<overall_width> - <layer_height>)) * speed
+    - (PI * (0.2 / 2)^2 + 2 * (0.2 / 2) * (0.48 - 0.2)) * 160
+    - (PI * 0.1^2 + 2 * 0.1 * 0.28) * 160
+    - (PI * 0.01 + 2 * 0.1 * 0.28) * 160
+    - (0.0314 + 0.056) * 160
+    - 0.087 * 160
+    - = 13.986mm^3/sec
+    
+    - 13.986 / 0.2 / 0.4 = 174.825
+
+    - 160 * 0.2 * 0.48 = 15.36mm^3/sec
+    - 15.36 / 0.2 / 0.48 = 160mm/sec
