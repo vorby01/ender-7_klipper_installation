@@ -1,1 +1,40 @@
 ### Determine extruder maximum flow rate(mm^3/s)(maximum printing speed)
+  - Maximum feed rate (extruder)(issue commands from mainsialOS web interface)
+    - > M83                #Set e to relative
+    - > M109 S210          #Set and wait for nozzle temp [210C]
+    
+    - Increase the extrusion speed until the extruder starts to lose steps then take last value
+    - > G1 E50 F60         #Start at 1mm/s extrude 50mm (F60 = 60mm/min = 1mm/s)
+    - > G1 E50 F120        #2mm/s
+    - > G1 E50 F180        #3mm/s
+    - > G1 E50 F240        #4mm/s
+    - > G1 E50 F300        #5mm/s
+    - > G1 E50 F360        #6mm/s
+    - > G1 E50 F420        #7mm/s
+    - > G1 E50 F480        #8mm/s
+    - > G1 E50 F540        #9mm/s
+    - > G1 E50 F600        #10mm/s losing steps
+    
+    - 540 / 60 = 9
+    - Max feed rate = 9mm/sec
+    
+  - Determine filament cross section
+    - Diameter: 1.75mm
+    - Radius = 1.75 / 2 = 0.875mm
+    - Cross section = pi * 0.875^2 = 2.405mm^2
+    
+  - Approximate maximum flow rate
+    - maximum_flow_rate(mm^3/sec) = <max_extrusion_speed(mm/sec)> * <filament_cross_section(mm^2)>
+    - 9 * 2.405 = 21.645mm^3/sec
+    
+  - Approximate max speed
+    - speed(mm/sec) = <volumetric_flow(mm^3/sec)> / <layer_height(mm)> / <line_width(mm)>
+    - 21.645 / 0.2 / 0.40 = 270.5625mm/sec
+    
+  - Approximate volumetric flow
+    - volumetric_flow(mm^3/sec) = <speed(mm/sec)> * <layer_height(mm)> * <line_width(mm)>
+    - 270.5625 * 0.2 * 0.4 = 21.645mm^3
+    
+  -
+    
+    
