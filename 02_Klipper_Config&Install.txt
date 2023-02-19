@@ -155,6 +155,9 @@ Compile firmware
 Start Klipper service
 > sudo service klipper start
 
+### Recommended to retrive printer settings with M503 before flashing to aid in configuration after flashing Klipper
+  - example: > M503, M92 X200.00 Y200.00 Z400.00 E140.00, Axis Steps-per-unit (e-steps)
+
 ### Flash firmware to microcontroller
 Retrieve compiled firmware (klipper.bin)
   - WinSCP
@@ -162,7 +165,7 @@ Retrieve compiled firmware (klipper.bin)
 
 - Rename klipper.bin to unique filename (must not match any previous filename)(add date)
 - Upload exampleklipper.bin to micro-sd card
-- With printer off ensure usb cable is disconnected 
+- With printer off ensure usb cable is disconnected (nothing connected during flashing)
 - Insert micro-sd card and turn printer on
 - Wait for board to flash (wait several min) (screen will no longer display current status)
 - Connect usb and login to mainsailOS web interface to confirm flashing is complete
