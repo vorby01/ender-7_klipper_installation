@@ -15,6 +15,7 @@
     - > G1 E50 F540        #9mm/s
     - > G1 E50 F600        #10mm/s losing steps
     
+    - Convert mm/min to mm/sec
     - 540 / 60 = 9
     - Max feed rate = 9mm/sec
     
@@ -28,16 +29,17 @@
     - 9 * 2.405 = 21.645mm^3/sec
     
   - Approximate max speed (theoretical limit)
+    - Recommnded line width: 1.2 * nozzle (0.48)
     - speed(mm/sec) = <volumetric_flow(mm^3/sec)> / <layer_height(mm)> / <line_width(mm)>
-    - 21.645 / 0.2 / 0.40 = 270.5625mm/sec
+    - 21.645 / 0.2 / 0.48 = 225.469mm/sec
     
   - Approximate volumetric flow (theoretical limit)
     - volumetric_flow(mm^3/sec) = <speed(mm/sec)> * <layer_height(mm)> * <line_width(mm)>
-    - 270.5625 * 0.2 * 0.4 = 21.645mm^3
+    - 225.469 * 0.2 * 0.48 = 21.645mm^3
     
 ### Print and measure for maximum flow
   - print model 20230124_external_speed_test_2_0.2mm_PLA_MINI_23m.gcode
-  - gcode details (nozzle: 0.4, layer_height: 0.2, perimeters: 1, Temp_bed: 60, Temp_nozzle: 215)
+  - gcode details (nozzle: 0.4, line_width: 0.48, layer_height: 0.2, perimeters: 1, Temp_bed: 60, Temp_nozzle: 215)
     - 0-0.5, external perimeters: 60mm/s
     - 0.5-5, external perimeters: 80mm/s
     - 5-10,  external perimeters: 100mm/s
@@ -53,17 +55,12 @@
   - Measure from base up to where under extrusion begins
     - 25mm = 160mm/s
     
-  - Calculate maximum flow (line_width = 0.4 * 1.2 = 0.48)
-    - (PI*r^2+2*r*(L-H))*mm/s
-    - (PI * (<layer_height> / 2)^2 + 2 * (<layer_height> / 2) * (<overall_width> - <layer_height>)) * speed
-    - (PI * (0.2 / 2)^2 + 2 * (0.2 / 2) * (0.48 - 0.2)) * 160
-    - (PI * 0.1^2 + 2 * 0.1 * 0.28) * 160
-    - (PI * 0.01 + 2 * 0.1 * 0.28) * 160
-    - (0.0314 + 0.056) * 160
-    - 0.087 * 160
-    - = 13.986mm^3/sec
-    
-    - 13.986 / 0.2 / 0.4 = 174.825
-
+  - Calculate maximum volumetric flow rate from measurement
     - 160 * 0.2 * 0.48 = 15.36mm^3/sec
+  
+  - Confirm Calculation (speed)
     - 15.36 / 0.2 / 0.48 = 160mm/sec
+
+  - Max filament feed rate
+    - 15.36 / 2.405 = 6.387mm/sec
+      
