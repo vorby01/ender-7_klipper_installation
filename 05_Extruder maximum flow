@@ -1,5 +1,5 @@
 ### Determine extruder maximum flow rate(mm^3/s)(maximum printing speed)
-  - Maximum feed rate (extruder)(issue commands from mainsialOS web interface)
+  - Maximum Feed rate/Melting rate (extruder)(issue commands from mainsailOS web interface)
     - > M83                #Set e to relative
     - > M109 S210          #Set and wait for nozzle temp [210C]
     
@@ -23,18 +23,19 @@
     - Radius = 1.75 / 2 = 0.875mm
     - Cross section = pi * 0.875^2 = 2.405mm^2
     
-  - Approximate maximum flow rate
+  - Approximate maximum flow rate (theoretical limit)
     - maximum_flow_rate(mm^3/sec) = <max_extrusion_speed(mm/sec)> * <filament_cross_section(mm^2)>
     - 9 * 2.405 = 21.645mm^3/sec
     
-  - Approximate max speed
+  - Approximate max speed (theoretical limit)
     - speed(mm/sec) = <volumetric_flow(mm^3/sec)> / <layer_height(mm)> / <line_width(mm)>
     - 21.645 / 0.2 / 0.40 = 270.5625mm/sec
     
-  - Approximate volumetric flow
+  - Approximate volumetric flow (theoretical limit)
     - volumetric_flow(mm^3/sec) = <speed(mm/sec)> * <layer_height(mm)> * <line_width(mm)>
     - 270.5625 * 0.2 * 0.4 = 21.645mm^3
     
-  -
+### Print and measure for maximum flow
+  - print model 20230124_external_speed_test_2_0.2mm_PLA_MINI_23m.gcode
     
     
