@@ -1,0 +1,170 @@
+# Thoroughly test printer (warning can crash printer, be ready to turn of power if somthing goes wrong)
+
+- Checklist
+  - Individually check heated bed and hotend temps (set small values and check if temp readings are as expected)
+  - Check functionality of all endstops
+  - Check homing
+  - Check extruder operation(direction)
+  - Perform PID tuning for heated bed and hotend
+  - Check your extruder is able to extrude the instructed amount of filament 
+    - Calibrate e-steps
+    - Calibrate flow rate
+
+## Login to MainsailOS web interface and issue commands
+
+### Set heater_bed temp check heat then turn off and check for cool down (safe operation)
+  - > SET_HEATER_TEMPERATURE HEATER=heater_bed TARGET=30
+  - > SET_HEATER_TEMPERATURE HEATER=heater_bed TARGET=0
+  
+### Set heater_bed temp check heat then turn off and check for cool down (safe operation)
+  - > SET_HEATER_TEMPERATURE HEATER=extruder TARGET=50
+  - > SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0
+  
+### Check endstops operation (with BLTouch)
+  - Disable motors
+    - > M83
+  - Manually move print head away from end stops to center
+  - Manually lower print bed out of way
+  
+  - Check endstops status
+    - > QUERY_ENDSTOPS
+      - return: x:open y:open z:open
+  - Manually press and hold each endstop switch (X,Y) and check operation
+    - > QUERY_ENDSTOPS
+      - return: x:triggered y:triggered z:open
+  
+  - Test BLTouch operation (Z axis)
+    - > bltouch_debug command=pin_down      # pin goes down, light goes off
+    - > bltouch_debug command=pin_up        # pin goes up, red light goes on
+    
+  - Test BLTouch Z endstop operation
+    - > bltouch_debug command=pin_down
+    - > bltouch_debug command=touch_mode
+    - > query_probe
+      - return: probe: open
+    - Slightly press and hold bltouch probe so it lights up but does not fully retract and query
+      - > query_probe
+        - return: probe: triggered
+      - > QUERY_ENDSTOPS
+        - return: x:open y:open z:triggered
+    - If probe blinks (probe state error)
+      - > bltouch_debug command=reset        # reset probe if fault(blinking)
+      - > bltouch_debug command=self_test    # pin goes down and up repeatedly, red light stays on
+      
+### Check Homing
+  - Verify stepper motor operation (Move axis 1mm back and forth 10 times)
+    - > STEPPER_BUZZ STEPPER=stepper_x
+    - > STEPPER_BUZZ STEPPER=stepper_y
+    - > STEPPER_BUZZ STEPPER=stepper_z
+    
+  - Verify direction and homeing(endstop) per axis
+    - Home X axis
+      - > G28 x
+    - Home Y axis
+      - > G28 y
+    - Home Z axis (Probe should drop first then bed will start moving)
+      - > G28 z
+  
+### Calibrate Z offset
+  - > probe_calibrate
+    - Adjust z-offset (Peice of paper just dragging between nozzle and bed)
+      - > testz=-0.1
+      - > testz=+0.1
+    - When happy with adjustment enter accept command in console
+      - > accept
+    
+  - Verify accuracy of Z offset
+    - > probe_accuracy
+      - 0.0125 or better, 0.025 no worse
+      - return: standard deviation of 0.002077
+      
+### Check extruder operation (direction) (no filament)
+  - Set E to relative
+    - > M83
+  - Extrude 100mm
+    - > G1 E100 F100
+  - Retract 100mm
+    - > G1 E-100 F100
+    
+### Perform PID tuning for heated bed and hotend (feed in filament so hotend is not empty for test)
+  - > PID_CALIBRATE HEATER=heater_bed TARGET=60
+    - return: PID parameters: pid_Kp=74.515 pid_Ki=1.153 pid_Kd=1204.353
+    
+  - > PID_CALIBRATE HEATER=extruder TARGET=200
+    - return: PID parameters: pid_Kp=21.862 pid_Ki=1.139 pid_Kd=104.939
+    
+  - When PID tuning complete save
+    - > save_config
+    
+### Calibrate Extruder (Calibrate e-steps) (Klipper: rotation_distance)
+  - [Method_1] Obtaining rotation_distance from steps_per_mm (e-steps)(approximation)
+    - Retrieve e-steps from firmware (Marlin) before flashing microcontroller with Klipper
+      - > M503
+        - return: M92 X200.00 Y200.00 Z400.00 E140.00
+        - 140 e-steps
+    - Calculate rotation distance
+      - rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
+        - 1.8 degree motor (full rotation = 200 steps (360/1.8=200))
+        - 16 microsteps
+        - 200 * 16 / 140 = 22.857
+      - rotation_distance = 22.857mm
+  
+  - [Method_2] Obtaining rotation_distance from measure and trim
+    - Heat extruder to 210C with filament
+    - Mark Filament at 100mm from intake to extruder
+    - Mark Filament at 120mm from intake to extruder
+    - Extrude 100mm filament (low speed minimul pressure in extruder)
+      - Set Extruder relative
+        - > G91
+      - Extrude 100mm
+        - > G1 E100 F100
+    - Measure remaining distance to mark (120mm mark to beginning of extruder)
+      - Remaining Measurement = 23mm
+    - actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>
+      - 120 - 23 = 97mm
+    - Previous e-steps
+      - 140 e-steps / 100mm = 1.4 step per mm
+    - Current e-steps
+      - Actual length extruded = 120mm – (Length from the extruder to mark after extruding)
+        - 120mm - 23mm = 97mm
+      - Accurate steps/mm = (Old steps/mm × Actual length extruded)
+        - 1.4steps/mm * 97mm = 135.8steps/mm
+    - New rotation_distance for Klipper
+      - rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
+        - 200steps * (16microsteps / 135.8steps/mm) = 23.564mm
+        
+### Calibrate flow rate (specific to each filament)
+  - PrusaSlicer (extrusion multiplier)
+  - Create/download a flow rate calibration model (50mm solid cube) and slice
+    - Slicer print settings:
+      - Layer Height: 0.2mm (or set to your normal printer layer height)
+        - PrusaSlicer > print settings > layers and perimeters > Layer height
+      -Line Width: 0.4 (wall thickness)
+        - PrusaSlicer > print settings > advanced > default extrusion width
+      -Wall Count(Perimeters): 1
+        - PrusaSlicer > print settings > layers and perimeters > Perimeters
+      -Infill Density: Set to 0%
+      -Top layers: set to 0 to make cube hollow
+        - PrusaSlicer > print settings > layers and perimeters > Solid layers > Top
+      -Print Speed: Set to your normal wall printing speed
+        - PrusaSlicer > print settings > layers and perimeters > Perimeters (default 40mm/s)
+    - Slicer filament settings
+      - PrusaSlicer Generic PLA
+        - Nozzle, First Layer:215C, Other Layers:215C
+        - Bed,    First Layer:60C,  Other Layers:60C
+
+  - Print Model with settings above
+  
+  - Measure each wall thickness at center on print with calipers
+    - measurements: 0.36, 0.4, 0.39, 0.35
+    - 0.36 + 0.4 + 0.39 + 0.35 = 1.5mm
+    - 1.5 / 4 = 0.375mm average wall thickness
+    
+  - Calculate flow rate
+    - New flow rate (%) = (0.4 ÷ average wall width) × 100
+    - (0.4 / 0.375) * 100 = 106.667%
+    - Extrusion Multiplier: 106.667% = 1.07
+  
+  - Update PrusaSlicer Extrusion Multiplier (recommended range: 0.9-1.1)
+    - Filament Settings > Filament > Extrusion multiplier = 1.07
+    
