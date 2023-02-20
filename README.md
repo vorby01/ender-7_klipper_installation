@@ -29,7 +29,14 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 
 - - - -
 ## File Descriptions:
- - 20230120 Ender7_Installation.txt, All of my notes on klipper installation and configuration on Ender-7
+ - 00_Prerequisite info.txt - > Some information the should be collected before starting, eg, default firmware settings(Marlin: M503), microcontroller/board(Creality CR-FDM-v2.4.S1_v101), pin hardware names
+ - 01_Install mainsailOS.txt
+ - 02_Klipper config and install.txt
+ - 03_Testing and calibration
+ - 04_Klipper macros.txt
+ - 05_Extruder maximum flow.txt
+ - 06_Pressure advance.txt
+ - 07_Resonance compensation.txt
 
  
  
