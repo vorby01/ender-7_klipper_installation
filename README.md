@@ -1,4 +1,4 @@
-# Ender 7 Klipper Config
+# ender-7 Klipper Install
 Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk)(Work in Progress)
 - Notes:
   - Ender-7 inbuilt screen will no longer work, incompatable with Klipper (creality wont release sorce code)
