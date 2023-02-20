@@ -36,7 +36,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
  - 04_Klipper macros.txt - Some Klipper macros and using with PrusaSlicer
  - 05_Extruder maximum flow.txt - Processes for determing printers maximum flow rate/speed
  - 06_Pressure advance.txt - Configure and use klipper pressure advance
- - 07_Resonance compensation.txt - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping)
+ - 07_Resonance compensation.txt - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping)(max_accel: x_max=18400, y_max=11500)
  
 ## Pictures
 ###### Ender 7 2023/01/21
