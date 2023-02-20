@@ -29,16 +29,14 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 
 - - - -
 ## File Descriptions:
- - 00_Prerequisite info.txt - > Some information the should be collected before starting, eg, default firmware settings(Marlin: M503), microcontroller/board(Creality CR-FDM-v2.4.S1_v101), pin hardware names
- - 01_Install mainsailOS.txt
- - 02_Klipper config and install.txt
- - 03_Testing and calibration
- - 04_Klipper macros.txt
- - 05_Extruder maximum flow.txt
- - 06_Pressure advance.txt
- - 07_Resonance compensation.txt
-
- 
+ - 00_Prerequisite info.txt - Some information the should be collected before starting, eg, default firmware settings(Marlin: M503), microcontroller/board(Creality CR-FDM-v2.4.S1_v101), pin hardware names
+ - 01_Install mainsailOS.txt - Process to install MainsailOS on raspberry pi
+ - 02_Klipper config and install.txt - Process to build klipper printer.cfg and flash microcontroller/board
+ - 03_Testing and calibration - Process for testing klipper is functional and ready to print
+ - 04_Klipper macros.txt - Some Klipper macros and using with PrusaSlicer
+ - 05_Extruder maximum flow.txt - Processes for determing printers maximum flow rate/speed
+ - 06_Pressure advance.txt - Configure and use klipper pressure advance
+ - 07_Resonance compensation.txt - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping)
  
 ## Pictures
 ###### Ender 7 2023/01/21
