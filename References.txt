@@ -1,5 +1,0 @@
-### References
-https://www.klipper3d.org/Config_Reference.html
-https://github.com/johnson-thomas/Creality-Ender7-Klipper-Starter-Pack [Needs adjusting (wrong working bed size)(Does not include details for use with probe(BLTouch))]
-https://www.cnckitchen.com/blog/flow-rate-benchmarking-of-a-hotend
-https://ellis3dp.com/Print-Tuning-Guide/articles/determining_max_volumetric_flow_rate.html
