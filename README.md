@@ -35,5 +35,5 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
  
 ## Pictures
 ###### Ender 7 2023/01/21
-![20230121_150533 167130](https://user-images.githubusercontent.com/121613362/213863458-201dbd82-3e40-40df-90d4-883b426c66c4.jpg)
+![Ender-7](images/20230121_Ender-7_Whole.jpg)
 
