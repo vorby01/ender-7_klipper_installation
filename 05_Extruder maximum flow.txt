@@ -65,5 +65,5 @@
     - 15.36 / 2.405 = 6.387mm/sec
 
 ### For more accurate flow rate calculation CNC Kitchen (https://www.cnckitchen.com/blog/flow-rate-benchmarking-of-a-hotend)
-  - will require a micro gram scale
+  - will require a milligram scale
   
