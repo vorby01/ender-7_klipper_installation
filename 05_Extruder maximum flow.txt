@@ -64,6 +64,8 @@
   - Max filament feed rate
     - 15.36 / 2.405 = 6.387mm/sec
 
-### For more accurate flow rate calculation CNC Kitchen (https://www.cnckitchen.com/blog/flow-rate-benchmarking-of-a-hotend)
+### For more accurate flow rate calculation CNC Kitchen 
+  - (https://www.cnckitchen.com/blog/extrusion-system-benchmark-tool-for-fast-prints)
+  - (https://www.printables.com/model/160335-hotened-benchmark-test-g-codes)
   - will require a milligram scale
   
