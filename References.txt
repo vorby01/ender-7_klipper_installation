@@ -1,0 +1,8 @@
+### For more accurate flow rate calculation CNC Kitchen 
+  - (https://www.cnckitchen.com/blog/extrusion-system-benchmark-tool-for-fast-prints)
+  - (https://www.printables.com/model/160335-hotened-benchmark-test-g-codes)
+  - will require a milligram scale
+  
+ https://github.com/johnson-thomas/Creality-Ender7-Klipper-Starter-Pack
+ 
+ https://www.klipper3d.org/Resonance_Compensation.html
