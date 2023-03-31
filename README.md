@@ -3,7 +3,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 - The ender-7 was my first 3d printer and these files show my learning curve into FDM printing with the ender-7
 
 - Notes:
-  - Ender-7 inbuilt screen will no longer work, incompatable with Klipper (creality wont release sorce code)
+  - Ender-7 inbuilt screen will no longer work, incompatable with Klipper (creality wont release source code)
   - Installing Klipper if settings are incorrect the printer can crash/break
   
 - - - -
