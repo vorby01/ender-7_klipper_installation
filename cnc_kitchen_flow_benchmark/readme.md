@@ -7,5 +7,5 @@ Links to resources
 
 ## Pictures
 ###### Ender-7 Benchmark Results
-![Ender-7](20230705_excel_benchmark_results.jpg)
+![Ender-7](20230705_excel_benchmark_results.JPG)
 ![Ender-7](20230705_excel_benchmark_results_2.JPG)
