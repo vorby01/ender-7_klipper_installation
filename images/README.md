@@ -12,3 +12,7 @@
 
 ###### Benchy 24/01/23 (1h 20m)
 ![benchy3](20230124_Benchy_1h20m.jpg)
+
+###### Benchy 05/07/23 (40m)
+20230705 3DBenchy 40min (Top/Bottom Layers,3)(Perminiters,2)(Infill,10%)
+![Ender-7](20230705_184716.jpg)
