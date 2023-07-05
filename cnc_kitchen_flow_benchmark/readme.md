@@ -9,3 +9,7 @@ Links to resources
 ###### Ender-7 Benchmark Results 2023-07-05
 ![Ender-7](20230705_excel_benchmark_results.JPG)
 ![Ender-7](20230705_excel_benchmark_results_2.JPG)
+![Ender-7](20230705_150736.jpg)
+
+20230705 3DBenchy 40min (Top/Bottom Layers,3)(Perminiters,2)(Infill,10%)
+![Ender-7](20230705_184716.jpg)
