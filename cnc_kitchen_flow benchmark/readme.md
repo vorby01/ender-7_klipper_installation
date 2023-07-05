@@ -4,3 +4,8 @@ Links to resources
 - https://www.cnckitchen.com/blog/extrusion-system-benchmark-tool-for-fast-prints
 - https://github.com/CNCKitchen/ExtrusionSystemBenchmark
 - https://hotend-flow-tester.netlify.app/
+
+## Pictures
+###### Ender-7 Benchmark Results
+![Ender-7](cnc_kitchen_flow_benchmark/20230705_excel_benchmark_results.jpg)
+![Ender-7](cnc_kitchen_flow_benchmark/20230705_excel_benchmark_results_2.jpg)
