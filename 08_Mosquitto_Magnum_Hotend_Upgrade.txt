@@ -1,0 +1,39 @@
+#### 08_Mosquitto_Magnum_Hotend_Upgrade.txt
+
+Hotend Blower Fans (EFC-04D24L) 
+  - Yellow = positive, Blue = negative
+  - replaced stock fans due to fault on one.
+
+Lgx Lite Extruder
+Connector: JST-XH 4-pin connector
+Motor gear : 10 teeth
+Motor length: 20 mm
+Motor Diameter: 36mm
+Step Angle : 1.8 degree (200 steps per rotation)
+Max Torque at : 1800 PPS
+Max operating Temperature / Current : 120℃ / 750 mA
+Manufacturer : LDO
+Manufacturer SKU : LDO-36STH20-1004AHG(XH)
+retraction speed : 35 mm/s
+retraction distance (bowden) : ~5 mm (0.4 + tube length[mm] x 0.015)
+retraction distance (direct drive) for rigid materials : 0.4 mm
+retraction distance (direct drive) for soft materials : 3 mm
+
+
+Change of stepper motor will require adjustment of Vref for extruder
+- Formula for TMC stepper drivers is Vref = ( I * 2.5 ) / Imax
+  I is the target current value measured in Amps 
+  Imax is 1.77 on regular mode and 1.2 on SilentStepSticks mode
+- Bondtech recommended vref of between .45 - .65
+
+min vref (0.45 * 2.5) / 1.77 = 0.64
+max vref (0.65 * 2.5) / 1.77 = 0.92
+vref between 0.67v - 0.92v
+
+(0.55 * 2.5) / 1.77 = 0.78v
+
+Update Klipper Config to suit Lgx Lite Extruder
+e-steps value : 562 using 16 microsteps; 1124 using 32 microsteps. 
+rotation_distance = full_steps_per_rotation * microsteps / steps_per_mm
+rotation_distance = 200 * 16 / 562
+rotation_distance = 5.7
