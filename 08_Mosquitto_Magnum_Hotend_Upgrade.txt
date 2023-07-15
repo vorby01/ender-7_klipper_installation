@@ -20,7 +20,7 @@ retraction distance (direct drive) for rigid materials : 0.4 mm
 retraction distance (direct drive) for soft materials : 3 mm
 
 
-Change of stepper motor will require adjustment of Vref for extruder
+Change of stepper motor will require adjustment of Vref for extruder (Default reading Vref 1.19v)
 - Formula for TMC stepper drivers is Vref = ( I * 2.5 ) / Imax
   I is the target current value measured in Amps 
   Imax is 1.77 on regular mode and 1.2 on SilentStepSticks mode
