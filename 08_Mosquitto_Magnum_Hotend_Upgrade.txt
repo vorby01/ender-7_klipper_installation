@@ -32,13 +32,19 @@ vref between 0.67v - 0.92v
 
 (0.55 * 2.5) / 1.77 = 0.78v
 
-Update Klipper Config to suit Lgx Lite Extruder
+##Update Klipper Config to suit Lgx Lite Extruder
 e-steps value : 562 using 16 microsteps; 1124 using 32 microsteps. 
 rotation_distance = full_steps_per_rotation * microsteps / steps_per_mm
 rotation_distance = 200 * 16 / 562
 rotation_distance = 5.7
 
-Update Klipper Config to suit new thermister #Slice engineering thermister(300)(ATC Semitec 104NT-4-R025H42G)
+Change extruder direction to suit Lgx-Lite Extruder
+
+[extruder] #Driver, Creality Board (TMC2208) (Lgx-Lite Extruder)
+dir_pin: PB3  #!PB3 = default direction, PB3 = reverse extruder dimension
+
+
+##Update Klipper Config to suit new thermister #Slice engineering thermister(300)(ATC Semitec 104NT-4-R025H42G)
 
 [extruder] #Driver, Creality Board (TMC2208) (Lgx-Lite Extruder)
 sensor_type: ATC Semitec 104NT-4-R025H42G
