@@ -1,0 +1,225 @@
+# Klipper Config Creality Ender 7. (stepper motors, 42-60, 1.8 degree, 200 steps)
+
+[include mainsail.cfg]
+[include macros.cfg]
+
+[mcu]
+#serial: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+serial: /dev/ttyUSB0 #sudo dmesg -w
+#baud: 115200
+restart_method: command
+
+[printer]
+kinematics: corexy
+max_velocity: 500           #(mm/s) max feedrate (E7:500)(Other:300)
+max_accel: 5000             #(mm/s^2)
+max_accel_to_decel: 2500    #(mm/s^2) default = half max_accel
+square_corner_velocity: 5.0 #(mm/s)
+max_z_velocity: 10          #(mm/s) default = max_velocity
+max_z_accel: 100            #(mm/s^2) default = max_accel
+
+[stepper_x] #Driver, DM542
+step_pin: PC2
+dir_pin: PB9
+enable_pin: !PC3
+rotation_distance: 32
+microsteps: 32
+full_steps_per_rotation: 200 #1.8=200, 0.9=400
+endstop_pin: ^PA5
+position_min: 0
+position_endstop: 0
+position_max: 250
+homing_speed: 50
+
+[stepper_y] #Driver, DM542
+step_pin: PB8
+dir_pin: !PB7
+enable_pin: !PC3
+rotation_distance: 32
+microsteps: 32
+full_steps_per_rotation: 200 #1.8=200, 0.9=400
+endstop_pin: ^PA6
+position_min: 0
+position_endstop: 250
+position_max: 250
+homing_speed: 50
+
+[stepper_z] #Driver, Creality Board (TMC2208)
+step_pin: PB6
+dir_pin: PB5
+enable_pin: !PC3
+rotation_distance: 8
+microsteps: 16
+full_steps_per_rotation: 200         #1.8=200, 0.9=400
+#endstop_pin: ^PA7                   # disable to use BLTouch
+#position_endstop: 3.0               # disable to use BLTouch
+endstop_pin: probe:z_virtual_endstop # enable to use BLTouch
+position_min: -4                     # enable to use BLTouch (-3.5)
+position_max: 300
+
+[extruder] #Driver, Creality Board (TMC2208)
+step_pin: PB4
+dir_pin: !PB3
+enable_pin: !PC3
+microsteps: 16
+rotation_distance: 23.564            #
+full_steps_per_rotation: 200         #1.8=200
+nozzle_diameter: 0.400               #(mm)
+filament_diameter: 1.750             #(mm)
+max_extrude_cross_section: 2.56      #(mm^2) default = 4.0 * nozzle_diameter^2, (4x0.4=1.6)(1.6^2=2.56)
+instantaneous_corner_velocity: 1.000 #(mm/s) default = 1
+max_extrude_only_distance: 250.0     #(mm)
+#max_extrude_only_velocity:          #(mm/s)
+#max_extrude_only_accel:             #(mm/s)^2
+#pressure_advance = 0.0              # 0 to disable (original:0.520)
+#pressure_advance_smooth_time: 0.040
+#HOT END VARIABLES
+heater_pin: PA1
+max_power: 1.0                      # (0.0-1.0) default:1.0
+sensor_type: EPCOS 100K B57560G104F
+sensor_pin: PC5
+#pullup_resistor: 4700              #default = 4700
+#smooth_time: 1.0                   #(s) default = 1
+#control: pid                       # tuned for stock hardware with 50 degree Celsius target
+#pid_Kp: 19.122                     # PID_CALIBRATE HEATER=extruder TARGET=200
+#pid_Ki: 0.898
+#pid_Kd: 101.825
+min_extrude_temp: 190              #(C) default = 170
+min_temp: 1
+max_temp: 230
+
+[heater_bed]
+heater_pin: PA15
+sensor_type: EPCOS 100K B57560G104F
+sensor_pin: PC4
+#control: pid                       # tuned for stock hardware with 50 degree Celsius target
+#pid_Kp: 70.499                     # updated with PID_CALIBRATE HEATER=heater_bed TARGET=60
+#pid_Ki: 1.546
+#pid_Kd: 803.686
+min_temp: 0
+max_temp: 75
+
+[fan]
+pin: PA0
+
+[filament_switch_sensor filament_sensor]
+pause_on_runout: true
+switch_pin: !PA4
+
+[bltouch]                    # enable for BLTouch (requires self_test after each firmware restart)
+sensor_pin: ^PB1
+control_pin: PB0
+#z_offset: 2.542             # initial safe value, get correct value by PROBE_CALIBRATE (bltouch: z_offset: 1.904)(bltouch: z_offset: 2.349)(bltouch: z_offset: 2.589)
+x_offset: -28.28
+y_offset: -28.28
+#probe_with_touch_mode: true
+pin_move_time: 0.5
+#samples: 2
+#speed: 2
+
+[safe_z_home]              # BLTouch home x,y axis then move to centre and home z
+home_xy_position: 125, 125 # Change coordinates to the center of your print bed
+speed: 50
+z_hop: 10                  # Move up 10mm
+z_hop_speed: 5
+
+[bed_mesh]
+speed: 120
+horizontal_move_z: 5 #10 #lift z between movements
+mesh_min: -25, -25       # x, y (x: 0-28.28=-28.28, -28.28+250= 221.72)
+mesh_max: 190, 190
+probe_count: 5
+#fade_start: 0.6
+#fade_end: 10.0
+move_check_distance: 5
+#mesh_pps: 2,2           #default = 2,2
+algorithm: bicubic       #default = lagrange
+#bicubic_tension: .2     #default = .2
+
+
+#Input shaper & resonance tester
+[mcu rpi]
+serial: /tmp/klipper_host_mcu
+
+[adxl345]
+cs_pin: rpi:None
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points:
+    125, 125, 20
+
+[pause_resume] #enable pause_resume
+recover_velocity: 50.0 #(mm/s) default = 50.0 mm/s.
+
+#[firmware_retraction] #enable G10 (retract) and G11 (unretract) GCODE commands
+#retract_length: 0 #(mm) default = 0
+#retract_speed: 20 #(mm/s) default = 20
+#unretract_extra_length: 0 #(mm)
+#unretract_speed: 10 #(mm/s) deafult = 10
+
+[respond] #Enable the "M118" and "RESPOND" extended commands
+default_type: echo #(echo: "echo: "), (command: "// "), (error: "!! ") default = echo
+#default_prefix: echo:
+
+#*# <---------------------- SAVE_CONFIG ---------------------->
+#*# DO NOT EDIT THIS BLOCK OR BELOW. The contents are auto-generated.
+#*#
+#*# [bltouch]
+#*# z_offset = 2.800
+#*#
+#*# [bed_mesh default]
+#*# version = 1
+#*# points =
+#*# 	  0.120000, 0.082500, 0.070000, 0.030000, 0.075000
+#*# 	  0.072500, 0.027500, 0.022500, 0.002500, 0.037500
+#*# 	  0.042500, 0.002500, -0.000000, -0.007500, 0.027500
+#*# 	  0.012500, -0.002500, 0.002500, 0.002500, 0.037500
+#*# 	  0.007500, 0.015000, 0.042500, 0.045000, 0.065000
+#*# x_count = 5
+#*# y_count = 5
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.2
+#*# min_x = -25.0
+#*# max_x = 190.0
+#*# min_y = -25.0
+#*# max_y = 190.0
+#*#
+#*# [heater_bed]
+#*# control = pid
+#*# pid_kp = 74.327
+#*# pid_ki = 0.985
+#*# pid_kd = 1401.994
+#*#
+#*# [extruder]
+#*# control = pid
+#*# pid_kp = 19.588
+#*# pid_ki = 1.005
+#*# pid_kd = 95.493
+#*#
+#*# [input_shaper]
+#*# shaper_type_x = mzv
+#*# shaper_freq_x = 80.0
+#*# shaper_type_y = mzv
+#*# shaper_freq_y = 61.4
+#*#
+#*# [bed_mesh 20230701 glass]
+#*# version = 1
+#*# points =
+#*# 	0.102500, 0.070000, 0.057500, 0.012500, 0.042500
+#*# 	0.060000, 0.017500, 0.012500, -0.007500, 0.015000
+#*# 	0.030000, 0.002500, -0.000000, -0.017500, 0.002500
+#*# 	0.005000, -0.000000, 0.010000, -0.000000, 0.025000
+#*# 	-0.002500, 0.032500, 0.052500, 0.042500, 0.057500
+#*# x_count = 5
+#*# y_count = 5
+#*# mesh_x_pps = 2
+#*# mesh_y_pps = 2
+#*# algo = bicubic
+#*# tension = 0.2
+#*# min_x = -25.0
+#*# max_x = 190.0
+#*# min_y = -25.0
+#*# max_y = 190.0
