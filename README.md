@@ -13,14 +13,15 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
   - ##### Modifications (2023/01/21)
     - Creality BL Touch Auto Bed Leveling Kit for Ender-7 (No Longer Available)(https://www.creality3d.online/collections/auto-bed-leveling-kit)
     - Embrace Making, Creality Ender 7 PEI Magnetic Flex Build Plate (https://embracemaking.com/products/copy-of-pei-magnetic-flex-build-plate-systems)
-    - ~Embrace Making, Creality Ender 7 Triple Lead Screw Upgrade Kit (https://embracemaking.com/products/creality-ender-7-triple-lead-screw-upgrade-kit-pre-order)~
-      - *Kept having twisting issues, broke plastic support arms.*
     - Tiny Machines 3D, Ender 7 Bed Stability Upgrade + Z-Axis Linear Rail Upgrade (https://www.tinymachines3d.com/products/ender-7-z-axis-upgrade-with-linear-rails-and-dual-lead-screws)
     - TH3D, Aluminum Bed Spacers (https://www.th3dstudio.com/product/aluminum-bed-spacers-pack-of-4/)
 
   - ##### Modifications (2023/02/18)
     - ADXL345 (Klipper Resonance Compensation)
-    - TH3D, Creality Ender 7 12864 LCD Conversion/Upgrade Kit (https://www.th3dstudio.com/product/creality-ender-7-12864-lcd-conversion-upgrade-kit/)
+
+  - ##### Modifications (2023/07/16)
+    - Mosquito Magnum Hotend (New 50w Heater, Thermister(300))
+    - Lgx Lite Extruder (Direct Drive)
 
 - - - -           
 - ### Klipper Host Machine
@@ -41,4 +42,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 ## Pictures
 ###### Ender 7 2023/01/21
 ![Ender-7](images/20230121_Ender-7_Whole.jpg)
+
+###### Ender 7 2023/07/16
+![Ender-7_mosquito_magnum]("images/20230712_ender7 (9).jpg")
 
