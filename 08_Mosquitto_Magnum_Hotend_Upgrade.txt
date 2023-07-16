@@ -41,4 +41,7 @@ rotation_distance = 5.7
 Update Klipper Config to suit new thermister #Slice engineering thermister(300)(ATC Semitec 104NT-4-R025H42G)
 
 [extruder] #Driver, Creality Board (TMC2208) (Lgx-Lite Extruder)
-sensor_type: ATC Semitec 104NT-4-R025H42G      
+sensor_type: ATC Semitec 104NT-4-R025H42G
+
+Calibrate new thermister
+- PID_CALIBRATE HEATER=extruder TARGET=215
