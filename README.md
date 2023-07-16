@@ -22,6 +22,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
   - ##### Modifications (2023/07/16)
     - Mosquito Magnum Hotend (New 50w Heater, Thermister(300))
     - Lgx Lite Extruder (Direct Drive)
+    - Custom designed mounts for hotend and extruder on printables.com
 
 - - - -           
 - ### Klipper Host Machine
