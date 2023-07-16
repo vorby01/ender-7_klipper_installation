@@ -10,7 +10,7 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
 - ### Printer Details
   - #### Creality Ender-7 Core-XY 3D Printer
     - (Early model with leadshine DM542 microstep drivers for X and Y)(purchased 2021/08/08)
-  - ##### Modifications (2023/01/21)
+  - ##### Modifications (2023/01/21) (as of)
     - Creality BL Touch Auto Bed Leveling Kit for Ender-7 (No Longer Available)(https://www.creality3d.online/collections/auto-bed-leveling-kit)
     - Embrace Making, Creality Ender 7 PEI Magnetic Flex Build Plate (https://embracemaking.com/products/copy-of-pei-magnetic-flex-build-plate-systems)
     - Tiny Machines 3D, Ender 7 Bed Stability Upgrade + Z-Axis Linear Rail Upgrade (https://www.tinymachines3d.com/products/ender-7-z-axis-upgrade-with-linear-rails-and-dual-lead-screws)
