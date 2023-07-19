@@ -54,3 +54,40 @@ Calibrate new thermister
 
 Calibrate new nozzle offset
 - PROBE_CALIBRATE
+
+
+#### 2023_07_19 Input shaping (Resonance Compensation)
+- Check connection to accelerometer in mainsailos
+  -> ACCELEROMETER_QUERY
+- Measure axes noise (range ~1-100) (1000+ quality issues)
+  -> MEASURE_AXES_NOISE
+
+- Measure resonance (per axis)(generates CSV files)
+  -> TEST_RESONANCES AXIS=X
+  -> TEST_RESONANCES AXIS=Y
+
+- Process generated CSV files (Requires SSH login)
+  -> ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
+  -> ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
+
+- X-axis ssh output
+Fitted shaper 'mzv' frequency = 63.2 Hz (vibrations = 0.0%, smoothing ~= 0.051)
+To avoid too much smoothing with 'mzv', suggested max_accel <= 11800 mm/sec^2
+
+- Y-axis ssh output
+Fitted shaper 'mzv' frequency = 45.2 Hz (vibrations = 1.3%, smoothing ~= 0.100)
+To avoid too much smoothing with 'mzv', suggested max_accel <= 6000 mm/sec^2
+
+-Update klipper printer.cfg
+//**printer.cfg**\\
+[input_shaper]
+shaper_type_x: mzv
+shaper_freq_x: 63.2
+shaper_type_y: mzv
+shaper_freq_y: 45.2
+
+[printer]
+max_accel: 10000           #x_max=11800, y_max=6000
+//**printer.cfg**\\
+
+
