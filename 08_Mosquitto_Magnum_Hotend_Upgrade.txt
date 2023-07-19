@@ -78,7 +78,7 @@ To avoid too much smoothing with 'mzv', suggested max_accel <= 11800 mm/sec^2
 Fitted shaper 'mzv' frequency = 45.2 Hz (vibrations = 1.3%, smoothing ~= 0.100)
 To avoid too much smoothing with 'mzv', suggested max_accel <= 6000 mm/sec^2
 
--Update klipper printer.cfg
+- Update klipper printer.cfg
 //**printer.cfg**\\
 [input_shaper]
 shaper_type_x: mzv
@@ -90,4 +90,7 @@ shaper_freq_y: 45.2
 max_accel: 10000           #x_max=11800, y_max=6000
 //**printer.cfg**\\
 
+- To recalibrate after adjustment (Input Shaper auto-calibration (re-calibration)(does not update max_accel))
+  -> SHAPER_CALIBRATE
+  -> SAVE_CONFIG
 
