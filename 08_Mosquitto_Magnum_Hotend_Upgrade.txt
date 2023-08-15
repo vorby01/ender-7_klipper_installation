@@ -94,3 +94,19 @@ max_accel: 10000           #x_max=11800, y_max=6000
   -> SHAPER_CALIBRATE
   -> SAVE_CONFIG
 
+
+#### 2023_08_15 Pressure Advance Tuning
+  - 0.4mm nozzle brass
+
+- Slicer 
+  - Set zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+
+- Klipper
+  - SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
+  - TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.005
+- Start tuning tower print
+
+- Measure print
+- Calculate pressure advance value
+  - pressure_advance = <start> + <measured_height> * <factor>
+
