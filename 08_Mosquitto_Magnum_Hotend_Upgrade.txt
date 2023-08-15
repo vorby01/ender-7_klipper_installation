@@ -109,4 +109,10 @@ max_accel: 10000           #x_max=11800, y_max=6000
 - Measure print
 - Calculate pressure advance value
   - pressure_advance = <start> + <measured_height> * <factor>
+  0 + 30 * 0.005 = 0.15
+
+- Update klipper printer.cfg
+[extruder]
+pressure_advance = 0.15
+
 
