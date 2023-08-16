@@ -100,6 +100,9 @@ max_accel: 10000           #x_max=11800, y_max=6000
 
 - Slicer 
   - Set zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+  - Layer Height: 0.75 * 0.4 = 0.3
+  - Layer Width: 1.1 * 0.4 = 0.44
+  - Estimated volume: 0.44mm * 0.3mm * 100mm/s = 13.2mm^3/sec
 
 - Klipper
   - SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
