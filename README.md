@@ -41,9 +41,12 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
  - 07_Resonance compensation.txt - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping) (max_accel: x_max=18400, y_max=11500)
  
 ## Pictures
-###### Ender 7 2023/01/21
+### Ender 7 2023/01/21
 ![Ender-7](images/20230121_Ender-7_Whole.jpg)
 
-###### Ender 7 2023/07/16
+### Ender 7 2023/07/16
 ![Ender-7_mosquito_magnum](images/20230712_ender-7_hotend.jpg)
+
+### Ender-7 2023/08/17 hotend_upgrade_v2
+![Ender-7_mosquitto_magnum_v2](images/20230817_ender-7_hotend_picture.jpg)
 
