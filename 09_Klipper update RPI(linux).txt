@@ -1,0 +1,26 @@
+### Update Klipper on rpi(raspberry pi) to match updated mcu version
+#20250125
+
+### Navigate to Klipper directory
+    > cd ~/klipper/
+      
+### Klipper configure firmware
+> make menuconfig
+  - change micro-controller architecture to linux process
+  - remove !PA15 (possibly still showing from mcu firmware update)
+
+//**make menuconfig**\\ (GUI)
+[*] Enable extra low-level configuration options
+    Micro-controller Architecture (Linux proces) --->
+() GPIO pins to set at micro-controller startup
+//**make menuconfig**\\
+
+### Compile Klipper firmware for rpi
+Stop Klipper service
+> sudo service klipper stop
+
+Compile firmware
+> make flash
+
+Start Klipper service
+> sudo service klipper start
