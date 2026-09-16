@@ -30,15 +30,23 @@ Details for Installing Klipper on Creality Ender 7 with BLTouch (Use at own risk
     - Running: Mainsail OS
 
 - - - -
+20260917 updated to markdown syntax
 ## File Descriptions:
- - 00_Prerequisite info.txt - Some information the should be collected before starting, eg, default firmware settings(Marlin: M503), microcontroller/board(Creality CR-FDM-v2.4.S1_v101), pin hardware names
- - 01_Install mainsailOS.txt - Process to install MainsailOS on raspberry pi
- - 02_Klipper config and install.txt - Process to build klipper printer.cfg and flash microcontroller/board
- - 03_Testing and calibration - Process for testing klipper is functional and ready to print
- - 04_Klipper macros.txt - Some Klipper macros and using with PrusaSlicer
- - 05_Extruder maximum flow.txt - Processes for determing printers maximum flow rate/speed
- - 06_Pressure advance.txt - Configure and use klipper pressure advance
- - 07_Resonance compensation.txt - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping) (max_accel: x_max=18400, y_max=11500)
+- 00_Prerequisite info.md - Some information the should be collected before starting, eg, default firmware settings(Marlin: M503), microcontroller/board(Creality CR-FDM-v2.4.S1_v101), pin hardware names
+
+- 01_Install mainsailOS.md - Process to install MainsailOS on raspberry pi
+
+- 02_Klipper config and install.md - Process to build klipper printer.cfg and flash microcontroller/board
+
+- 03_Testing and calibration.md - Process for testing klipper is functional and ready to print
+
+- 04_Klipper macros.md - Some Klipper macros and using with PrusaSlicer
+
+- 05_Extruder maximum flow.md - Processes for determing printers maximum flow rate/speed
+
+- 06_Pressure advance.md - Configure and use klipper pressure advance
+
+- 07_Resonance compensation.md - Install and use ADXL345 accelerometer to minimise printer resonance (input shaping) (max_accel: x_max=18400, y_max=11500)
  
 ## Pictures
 ### Ender 7 2023/01/21
